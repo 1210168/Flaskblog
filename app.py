@@ -8,7 +8,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/article1")
-def article1():　
+def article1():
     return render_template("article1.html")
 
 @app.route("/article2")

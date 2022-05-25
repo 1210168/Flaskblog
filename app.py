@@ -16,9 +16,10 @@ class Post(db.Model):
     body=db.Column(db.String(300),nullable=False)
     created_at=db.Column(db.DateTime,nullable=False,default=datetime.now(pytz.timezone("Asia/Tokyo")))
 
-@app.route("/")
+@app.route("/",methods=["GET"])  #変更
 def index():
-    return render_template("index.html")
+    posts = Post.query.all()   #DBに登録した内容をすべて取得する
+    return render_template("index.html",posts=posts)
 
 @app.route("/article1")
 def article1():

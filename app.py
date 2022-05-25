@@ -57,7 +57,7 @@ def update(id):
 
 @app.route("/<int:id>/delete",methods=["GET"])
 def delete(id):
-    ret = tkinter.messagebox.askokcancel(title = "確認", message = "投稿を削除しますか？")
+    ret = messagebox.askokcancel(title = "確認", message = "投稿を削除しますか？")
     print(ret)
     if ret == True:
         post = Post.query.get(id)

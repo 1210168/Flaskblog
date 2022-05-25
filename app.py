@@ -5,7 +5,13 @@ from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
+import tkinter as tk
 from tkinter import messagebox
+
+root = tk.Tk()
+root.withdraw()
+root.lift()
+root.focus_force()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
@@ -58,7 +64,7 @@ def update(id):
 @app.route("/<int:id>/delete",methods=["GET"])
 def delete(id):
     res = messagebox.askokcancel("確認", "投稿を削除しますか？")
-    if ret == True:
+    if res == True:
         post = Post.query.get(id)
         db.session.delete(post)
         db.session.commit()

@@ -16,6 +16,7 @@
       <p>- 作成日時：{{post.created_at}}</p>
       <p>- {{post.body}}</p>
       <a href="/{{post.id}}/update" role="button">編集</a>
+      <a href="/{{post.id}}/delete" role="button">削除</a>
       {% endfor %}
     </article>
     <a href="{{url_for('article1')}}">記事1へ</a>

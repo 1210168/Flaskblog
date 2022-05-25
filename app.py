@@ -60,6 +60,7 @@ def update(id):
 def delete(id):
     root = tk.Tk()
     root.withdraw()
+    root.focus_force()
     res = messagebox.askokcancel("確認", "投稿を削除しますか？")
     if res == True:
         post = Post.query.get(id)

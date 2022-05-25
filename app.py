@@ -68,6 +68,7 @@ def delete(id):
         post = Post.query.get(id)
         db.session.delete(post)
         db.session.commit()
+    root.destroy()
     return redirect("/")
 
 if __name__ == '__main__':

@@ -59,7 +59,7 @@ def update(id):
 def delete(id):
     #ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
     #print(ret)
-    ret = True
+    ret = False
     if ret == True:
         post = Post.query.get(id)
         db.session.delete(post)

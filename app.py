@@ -57,11 +57,10 @@ def update(id):
 
 @app.route("/<int:id>/delete",methods=["GET"])
 def delete(id):
-    ret = messagebox.askyesno('確認', '投稿%dを削除しますか？'%id)
-    if ret == TRUE:
-        post = Post.query.get(id)
-        db.session.delete(post)
-        db.session.commit()
+    messagebox.askyesno('確認', '投稿%dを削除しますか？'%id)
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
     return redirect("/")
 
 if __name__ == '__main__':

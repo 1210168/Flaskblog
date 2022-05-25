@@ -59,8 +59,8 @@ def update(id):
 def delete(id):
     from tkinter import messagebox
     ret = False
-    #ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
-    #print(ret)
+    ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
+    print(ret)
     if ret == True:
         post = Post.query.get(id)
         db.session.delete(post)

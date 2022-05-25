@@ -19,8 +19,7 @@ class Post(db.Model):
 
 @app.route("/",methods=["GET"])  #変更
 def index():
-    ret = messagebox.askokcancel(title = "確認", message = "投稿を削除しますか？")
-    print(ret)
+    messagebox.askokcancel(title = "確認", message = "投稿を削除しますか？")
     posts = Post.query.all()   #DBに登録した内容をすべて取得する
     return render_template("index.html",posts=posts)
 

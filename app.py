@@ -7,12 +7,12 @@ from datetime import datetime
 import pytz
 from tkinter import messagebox
 
-ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
-print(ret)
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
+
+ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
+print(ret)
 
 class Post(db.Model):
     id=db.Column(db.Integer,primary_key=True)

@@ -7,8 +7,8 @@ from datetime import datetime
 import pytz
 from tkinter import messagebox
 
-    ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
-    print(ret)
+ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
+print(ret)
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'

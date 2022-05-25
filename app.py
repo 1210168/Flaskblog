@@ -11,9 +11,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
 
-ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
-print(ret)
-
 class Post(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     title=db.Column(db.String(50),nullable=False)
@@ -60,6 +57,7 @@ def update(id):
 
 @app.route("/<int:id>/delete",methods=["GET"])
 def delete(id):
+    from tkinter import messagebox
     ret = False
     #ret = messagebox.askokcancel("確認", "投稿を削除しますか？")
     #print(ret)

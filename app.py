@@ -43,5 +43,16 @@ def create():
     else:
         return render_template("create.html")
 
+@app.route("/<int:id>/update",methods=["GET","POST"])   #DBのIDがルーティングの部分に持ってこれるように指定する
+def update(id):
+    post=Post.query.get(id)
+    if request.method == "GET":
+        return render_template("update.html",post=post)
+    else:
+        post.title = request.form.get("title")
+        post.body = request.form.get("body")
+        db.session.commit()
+        return redirect("/")
+
 if __name__ == '__main__':
     app.run(debug=True)

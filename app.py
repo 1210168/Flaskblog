@@ -5,7 +5,7 @@ from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
-import tkinter
+from tkinter import messagebox
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'

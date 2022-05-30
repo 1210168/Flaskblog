@@ -36,14 +36,17 @@ def create():
     if request.method == "POST":
         title = request.form.get("title")
         body = request.form.get("body")
-        
         post = Post(title=title,body=body)
-        
         db.session.add(post)
         db.session.commit()
         return redirect("/")
     else:
         return render_template("create.html")
+        
+@app.route("/view/<int:id>")
+def view(id):
+    post = Post.query.get(id)
+    return render_template("view.html",post=post)
 
 @app.route("/<int:id>/update",methods=["GET","POST"])   #DBのIDがルーティングの部分に持ってこれるように指定する
 def update(id):
@@ -70,6 +73,6 @@ def delete(id):
         db.session.commit()
     root.destroy()
     return redirect("/")
-
+    
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <article>
+  <div class = "naiyou">
   <ul>
-    <li><h2>{{post.title}}</h2></li>
-     <ul>
-       <li>{{post.body}}</li>
-     </ul>
-    </ul>
-    作成日時：{{post.created_at}}
+    <li><h2 class = "artclttl">{{post.title}}</h2></li>
+  </ul>
+  <ul>
+    <li>{{post.body}}</li>
+  </ul>
+  </div>
+    <p class = "slanting">作成日時：{{post.created_at}}</p>
      <a href="/{{post.id}}/update" role="button">編集</a>
      <a href="/{{post.id}}/delete" role="button">削除</a>
      <a href="{{url_for('index')}}">ホームへ</a>

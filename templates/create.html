@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>新規登録</h>
+    <h1>新規登録</h1>
+    <div class = "create">
     <form method="POST">
         <label for="title">タイトル</label>
         <input type="text" name="title">
@@ -8,6 +9,7 @@
         <input type="text" name="body">
         <input type="submit" value="新規登録">
     </form>
+    </div>
 
-    <a href= "{{url_for('index')}}">戻る</a>
+    <a href= "{{url_for('index')}}"><p class = nu>戻る</p></a>
 {% endblock %}

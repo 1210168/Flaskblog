@@ -59,8 +59,10 @@ def update(id):
         db.session.commit()
         return redirect("/")
 
-@app.route("/<int:id>/delete",methods=["GET"])
+@app.route("/<int:id>/delete",methods=["GET","POST"])
 def delete(id):
+    post = Post.query.get(id)
+    res = False
     root = tk.Tk()
     root.withdraw()
     root.attributes('-topmost', True)
@@ -68,11 +70,13 @@ def delete(id):
     root.focus_force()
     res = messagebox.askokcancel("確認", "投稿を削除しますか？")
     if res == True:
-        post = Post.query.get(id)
         db.session.delete(post)
         db.session.commit()
-    root.destroy()
-    return redirect("/")
+        root.destroy()
+        return redirect("/")
+    else:
+        root.destroy()
+        return redirect("/view/"+str(id))
     
 if __name__ == '__main__':
     app.run(debug=True)
